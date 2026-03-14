@@ -1,0 +1,45 @@
+
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, UploadFile, File
+from app.services.voice_compare import compare_two_voices
+from app.services.speaker_search import detect_speaker
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+def root():
+    return {"message": "Voice Auth API running"}
+
+
+@app.post("/compare-voices")
+async def compare_voices(
+    voice1: UploadFile = File(...),
+    voice2: UploadFile = File(...)
+):
+
+    similarity = compare_two_voices(voice1.file, voice2.file)
+
+    return {
+        "similarity": similarity,
+        "same_person": similarity > 0.75
+    }
+
+
+
+
+@app.post("/detect-speaker")
+async def detect_speaker_api(
+    voice1: UploadFile = File(...),
+    voice2: UploadFile = File(...)
+):
+
+    result = detect_speaker(voice1.file, voice2.file)
+
+    return result

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# audio
+*.wav
+*.mp3
+*.webm
+
+# temp
+temp/
+logs/
+
+# models
+*.pt
+*.pth
