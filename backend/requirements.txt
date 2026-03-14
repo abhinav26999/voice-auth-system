@@ -8,3 +8,4 @@ scikit-learn==1.8.0
 Resemblyzer==0.1.4
 webrtcvad==2.0.10
 python-multipart==0.0.22
+setuptools
