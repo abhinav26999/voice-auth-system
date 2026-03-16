@@ -10,4 +10,4 @@ scikit-learn==1.8.0
 Resemblyzer==0.1.4
 webrtcvad-wheels
 python-multipart==0.0.22
-torch==2.0.0+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.0.0 --extra-index-url https://download.pytorch.org/whl/cpu
